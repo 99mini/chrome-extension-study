@@ -3,7 +3,9 @@
   "manifest_version": 3,
   "name": "chrome-extension-study",
   "description": "테스트 코드",
+  "background": { "service_worker": "src/scripts/background.js" },
+  "permissions": ["storage"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "src/popup/popup.html"
   }
 }
