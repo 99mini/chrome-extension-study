@@ -1,5 +1,3 @@
-console.log("hello background");
-
 /**
  * chrome local 저장소에 {key: value} 형태로 저장하기
  * @param {string} key
@@ -11,7 +9,9 @@ function setStorage(key, value) {
   chrome.storage.local.set(setObj);
 }
 
-setStorage("testKey", "testValue");
-chrome.storage.local.get("testKey", function (result) {
-  console.log(result);
+chrome.runtime.onInstalled.addListener(() => {
+  setStorage("testKey", "testValue");
+  chrome.storage.local.get("testKey", function (result) {
+    console.log(result);
+  });
 });
